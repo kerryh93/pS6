@@ -45,7 +45,14 @@ public class MainApp extends Application {
      * Constructor
      */
     public MainApp() {
-    	RefreshPersonTable();
+  // Add some sample data
+    	
+    	ArrayList<PersonDomainModel> people = PersonDAL.getPersons();
+    	
+    	for (PersonDomainModel p: people)
+    	{
+    		personData.add(new Person(null, p.getFirstName(),p.getLastName(), p.getStreet(), null, p.getPostalCode(),p.getCity(), p.getBirthday()));
+    	}
     }
     
     
